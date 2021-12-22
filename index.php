@@ -10,7 +10,7 @@
         public $isVisible;
 
         // Construct
-        function __construct($title, $director, $year, $genre, $rating = 18) {
+        function __construct($title, $director, $year, $genre, $rating) {
             $this->title = $title;
             $this->director = $director;
             $this->year = $year;
@@ -21,7 +21,7 @@
 
         // Methods
         function ratingLimit($rating) {
-            if ($rating == 18) {
+            if ($rating < 18) {
                 return false;
             } else {
                 return true;
@@ -42,7 +42,7 @@
     var_dump($movie1);
     $movie1->showMovie();
 
-    $movie2 = new Movies('The Exorcist', '	William Friedkin', '1973', 'horror',);
+    $movie2 = new Movies('The Exorcist', 'William Friedkin', '1973', 'horror', 18);
     var_dump($movie2);
     $movie2->showMovie();
 ?>
